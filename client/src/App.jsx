@@ -9,9 +9,9 @@ import ChatRoom from './components/ChatRoom';
 let socketInstance = null;
 
 export default function App() {
-  const [userId, setUserId] = useState(null);
+  const [userId, setUserId] = useState(() => 'user_' + Math.random().toString(36).substr(2, 9));
   const [user, setUser] = useState(null);
-  const [view, setView] = useState('auth'); // 'auth' | 'profile' | 'lobby' | 'chat'
+  const [view, setView] = useState('profile'); // Direct profile setup bypass
   const [roomDetails, setRoomDetails] = useState(null); // { roomId, peer, matchScore }
   const [onlineCount, setOnlineCount] = useState(1);
 
